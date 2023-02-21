@@ -5,6 +5,8 @@ services:
   database:
     image: mongo
     restart: always
+    ports:
+      - "27017:27017"
     volumes:
       - ./data/db:/data/db
 
@@ -57,7 +59,7 @@ services:
 
   # Web App (revite)
   web:
-    image: ghcr.io/revoltchat/client:master
+    image: maddox5305/epcenter:latest
     env_file: .env
     depends_on:
       - caddy
